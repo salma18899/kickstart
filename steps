@@ -1,0 +1,14 @@
+sudo yum install httpd
+sudo systemctl enable httpd
+sudo systemctl start httpd
+mkdir /var/www/html/kick
+cp anaconda-ks.cfg /var/www/html/kick/ks.cfg
+setenforce 0
+firewall-cmd --add-service=http --permanent
+firewall-cmd --reload
+chmod 777 /var/www/html/kick/
+chmod 777 /var/www/html/kick/ks.cfg
+chown -R apache:apache /var/www/html/kick/
+create new virtual machine has 2GB Memory 1 processor 40GB Harddisk
+in grep menu press tab
+linux ks=http://ip of machine/kick/ks.cfg
